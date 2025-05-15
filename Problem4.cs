@@ -21,6 +21,12 @@ namespace myproject
                 for (ulong element2 = element1; element2 >= minElement; element2--)
                 {
                     ulong product = element1 * element2;
+                    if (largest != null && product < largest)
+                    {
+                        // none of the remaining `element2` values will result in a product larger than `largest` at the current `element1` value
+                        // so move onto the next `element1` value
+                        break;
+                    }
                     if ((largest == null || product > largest) && IsPalindrome(product))
                     {
                         largest = product;
